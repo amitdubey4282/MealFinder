@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addRecipe, removeFromCalendar } from '../actions'
 import { capitalize } from '../utils/helpers'
@@ -9,6 +9,7 @@ import Loading from 'react-loading'
 import { fetchRecipes } from '../utils/api'
 import FoodList from './FoodList'
 import ShoppingList from './ShoppingList'
+
 
 class App extends Component {
   state = {
@@ -42,7 +43,8 @@ class App extends Component {
     e.preventDefault()
 
     this.setState(() => ({ loadingFood: true }))
-
+   
+    
     fetchRecipes(this.input.value)
       .then((food) => this.setState(() => ({
         food,
@@ -195,3 +197,5 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(App)
+
+ 
